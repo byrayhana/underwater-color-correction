@@ -5,17 +5,6 @@ from scipy import ndimage
 import scipy as sp
 import heapq
 global w,bi,gi,ri,img
- 
-def dark_channel(i):
-    m,n,_=i.shape
-    #padding an array with i
-    padded=np.pad(i, ((int(w/2),int(w/2)),(int(w/2),int(w/2)),(0,0)),'edge')
-    #creating the dark channel array
-    dark=np.zeros((m,n))
-    #select the lowest pixels
-    for i,j in np.ndindex(dark.shape):
-        dark[i,j]=np.min(padded[i:i+w, j:j+w , : ])
-    return dark
 
 def bright_channel(i):
     m,n,_ = i.shape
